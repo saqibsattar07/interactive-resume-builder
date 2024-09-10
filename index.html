@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Include jsPDF from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Interactive Resume Builder</h1>
+      <form id="resumeForm">
+        <!-- Profile Image Upload Field -->
+        <div class="form-group">
+          <label for="profileImageUpload">Upload Profile Image</label>
+          <input type="file" id="profileImageUpload" accept="image/*" />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="about">About Me</label>
+          <textarea
+            id="about"
+            name="about"
+            autocomplete="about"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea
+            id="address"
+            name="address"
+            autocomplete="address"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="education">Education</label>
+          <input
+            type="text"
+            id="education"
+            name="education"
+            autocomplete="organization-title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="experience">Experience</label>
+          <textarea
+            id="experience"
+            name="experience"
+            autocomplete="organization-title"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="skills">Skills</label>
+          <input
+            type="text"
+            id="skills"
+            name="skills"
+            autocomplete="skills"
+            required
+          />
+        </div>
+        <button type="submit">Generate Resume</button>
+      </form>
+
+      <div id="resumeDisplay" style="display: none">
+        <div class="resume">
+          <div class="resume-left">
+            <img
+              id="profileImagePreview"
+              src="profile-placeholder.png"
+              alt="Profile Image"
+            />
+            <h2 id="displayName"></h2>
+            <h2>About Me</h2>
+            <p id="displayAbout"></p>
+            <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+            <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+          </div>
+
+          <div class="resume-right">
+            <h2>Experience</h2>
+            <p id="displayExperience"></p>
+            <h2>Education</h2>
+            <p id="displayEducation"></p>
+            <h2>Skills</h2>
+            <p id="displaySkills"></p>
+          </div>
+        </div>
+        <button id="editResume">Edit Resume</button>
+        <button id="downloadPDF">Download PDF</button>
+      </div>
+    </div>
+
+    <!-- Include your TypeScript file -->
+    <script type="module" src="dist/main.js"></script>
+  </body>
+</html>
